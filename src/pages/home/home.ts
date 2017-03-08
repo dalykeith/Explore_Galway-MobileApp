@@ -13,6 +13,7 @@ import { Camera } from 'ionic-native';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  //test
   //public base64Image: string;
 constructor() {}
   // constructor(public navCtrl: NavController) {
