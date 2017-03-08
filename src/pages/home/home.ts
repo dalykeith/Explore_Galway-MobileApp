@@ -13,21 +13,16 @@ import { Camera } from 'ionic-native';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  base64Image: string;
-
-constructor() {
-  this.base64Image = "https://placehold.it/350/150";
-}
+  //public base64Image: string;
+constructor() {}
   // constructor(public navCtrl: NavController) {
   //   //public navCtrl: NavController
 
   // }
   // photo place holder
-  
   photos: Photo [] = [new Photo('', 0)];
   // = [new Photo('https://placehold.it/350/150', 5), new Photo('https://placehold.it/350/150', 5)]
   //testing fake image holders for placement  
-
 
   takePhoto() {
     Camera.getPicture({
@@ -38,8 +33,8 @@ constructor() {
     }).then((imageData) => {
       // imageData is a base64 encoded string
   //let base64Image = 'data:image/jpeg;base64,' + imageData;
-       this.base64Image = "data:image/jpeg;base64," + imageData;
-      //this.photos.push(new Photo("data:image/jpeg;base64," + imageData, 0));
+       // this.base64Image = "data:image/jpeg;base64," + imageData;
+      this.photos.push(new Photo("data:image/jpeg;base64," + imageData, 0));
     }, (err) => {
       console.log(err);
     });
