@@ -1,0 +1,73 @@
+<!--<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Local things to get up to!
+    </ion-title>
+  </ion-navbar>
+</ion-header>-->
+
+<ion-header>
+  <ion-toolbar>
+    <!--This is the creation button in the top bar-->
+    <ion-buttons start>
+      <button ion-button (click)= "launchDiaryPage()">
+        <!--icon-only-->
+        <ion-icon name="create"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>
+      Local Activities;
+    </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+<ion-card>
+  <ion-card-header>
+    Explore Nearby:
+  </ion-card-header>
+  
+  <!--begining of list-->
+  <ion-list>
+    <!--Coffee, Food etc..  are all buttons that are linked to other pages-->
+    <button ion-item (click)= "launchCoffeePage()">
+      <ion-icon name="cafe" item-left></ion-icon>
+      Coffee
+    </button>
+
+    <button ion-item (click)= "launchFoodPage()">
+      <ion-icon name="pizza" item-left></ion-icon>
+      Food
+    </button>
+    
+    <button ion-item (click)= "launchDrinksPage()">
+      <ion-icon name="beer" item-left></ion-icon>
+      Drinks
+    </button>
+    
+    <button ion-item (click)= "launchWalksPage()">
+      <ion-icon name="walk" item-left></ion-icon>
+      Walks
+    </button>
+    
+    <button ion-item (click)= "launchShoppingPage()">
+      <ion-icon name="cart" item-left></ion-icon>
+      Shopping
+    </button>
+  </ion-list>
+</ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-card>
+  <ion-card-header>
+    <ion-icon name="map"></ion-icon>
+     Map of Galway:
+  </ion-card-header>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d152660.05018491132!2d-9.188836142077003!3d53.28392288320482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485b93955a2d5bff%3A0x32b1b440a495281!2sGalway!5e0!3m2!1sen!2sie!4v1488902331465" width="1000" height="180" frameborder="0" style="border:0"></iframe>
+</ion-card>
+</ion-footer>

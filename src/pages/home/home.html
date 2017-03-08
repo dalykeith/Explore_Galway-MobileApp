@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar fixed>
+    <ion-title>WUA Galway</ion-title>
+  </ion-toolbar>
+  <button (click)="takePhoto()" ion-button outline block>Snap what you see!</button>
+  
+</ion-header>
+
+<!--The idea here is to take a picture and have it show on screen with the options to like and delete the image
+Outlined grid to image storage location, click button, like icon button and delete photo icon button-->
+
+<ion-content>
+  <h1>Save Memories</h1> 
+  <p> What are you at in Galway, find a snappable pint, coffee, ice-cream, street view, sunset or anything you find intresting on your time here. </p>
+  <!--Image location in card -->
+  <ion-card *ngFor="let photo of photos">
+    <ion-card-content>
+        <img [src]="photo.src" />
+        <!--Like button-->
+        <button (click)="likePhoto(photo)" ion-button block>
+        <ion-icon name="heart"></ion-icon>
+        <ion-badge item-right>{{photo.likes}}</ion-badge>
+        </button>
+        <!--Delete button-->
+        <button (click)="deletePhoto(photo)" ion-button color="danger" block>
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
