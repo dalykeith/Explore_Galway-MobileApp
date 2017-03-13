@@ -4,6 +4,7 @@
 
 Welcome to the Read Me of 'WUA Galway' ionic app
 
+<<<<<<< HEAD
 The Idea behind this is a (What are you at) tourism app for Galway,on what have you done and what to get up to!
 
 First Tab: Camera 
@@ -28,3 +29,30 @@ Third Tab: Contact
 Keith Daly
 GMIT, Galway 
 2017
+=======
+The Idea behind this is a (What are you at) tourism app for Galway, with a camera feature to
+take pictures of what you are up to. 
+
+First Tab: Camera 
+    -Snap button to get photo.
+    -Display of photos with unlimited option to like photo and option to delete photo.
+
+Second Tab: About/Information
+    -Top Corner (Left/Right Depending on Device) There is a Diary button to be 
+        linked to another page to take note of what you are getting up to each day.
+    -Ionic Card layout
+        Each button links to a new page depending.
+        Every page has 3 information sections with an image file and a google maps location identifier working to each location.
+        On the Walks and Shopping they are done with another in card and a ionic radio style.
+    -At the bottom I have a big map, set to Galway city.
+
+Third Tab:
+    -Contact information on the creator of the app.
+    -Facebook feed plugin to local Galway facebook page.
+
+
+
+Keith Daly 
+GMIT, Galway 
+2017
+>>>>>>> changed camera and added an info toast button

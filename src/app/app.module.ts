@@ -14,6 +14,19 @@ import { ShoppingPage } from '../pages/shopping/shopping';
 
 import { DiaryPage } from '../pages/diary/diary';
 
+// import { AngularFireModule } from 'angularfire2';
+
+// export const firebaseConfig = {
+//   var config = {
+//     apiKey: "AIzaSyCj9cmveNq1XpQquN7dw3VGZSsa1BOyP8s",
+//     authDomain: "madapp-75a8b.firebaseapp.com",
+//     databaseURL: "https://madapp-75a8b.firebaseio.com",
+//     storageBucket: "madapp-75a8b.appspot.com",
+//     messagingSenderId: "39345576965"
+//   };
+  
+// }
+
 @NgModule({
   declarations: [
     MyApp,

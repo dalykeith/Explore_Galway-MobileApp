@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 
+//toast pop up message
+import { ToastController } from 'ionic-angular';
+
 //Importing photo file 
 import { Photo } from './../photo';
 //Native ionic camera 
@@ -13,14 +16,26 @@ import { Camera } from 'ionic-native';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  
   //test
   //public base64Image: string;
-constructor() {}
+constructor(public toastCtrl: ToastController) {}
   // constructor(public navCtrl: NavController) {
   //   //public navCtrl: NavController
 
   // }
   // photo place holder
+showToastWithCloseButton() {
+    const toast = this.toastCtrl.create({
+      message: 'Tap the Camera button at the bottom! Capture a snappable pint, coffee, ice-cream, street view, sunset or anything you find intresting on your time here and save it in the Memory Bank!',
+      showCloseButton: true,
+      closeButtonText: 'Ok'
+    });
+    toast.present();
+  }
+
+
+
   photos: Photo [] = [new Photo('', 0)];
   // = [new Photo('https://placehold.it/350/150', 5), new Photo('https://placehold.it/350/150', 5)]
   //testing fake image holders for placement  
