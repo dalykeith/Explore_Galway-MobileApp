@@ -16,6 +16,8 @@ import { Camera } from 'ionic-native';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  public base64Image: string;
+  name: string;
   
   //test
   //public base64Image: string;
@@ -50,7 +52,8 @@ showToastWithCloseButton() {
       // imageData is a base64 encoded string
   //let base64Image = 'data:image/jpeg;base64,' + imageData;
        // this.base64Image = "data:image/jpeg;base64," + imageData;
-      this.photos.push(new Photo("data:image/jpeg;base64," + imageData, 0));
+      //  this.base64Image = "data:image/jpeg;base64," + imageData;
+       this.photos.push(new Photo("data:image/jpeg;base64," + imageData, 0));
     }, (err) => {
       console.log(err);
     });
