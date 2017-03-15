@@ -1,22 +1,27 @@
-<ion-header>
+<!--<ion-header>
   <ion-toolbar fixed>
-    <ion-title>Explore Galway</ion-title>
+    <ion-title large>Explore Galway <button primary small ion-button (click)="showToastWithCloseButton()">?</button></ion-title>
   </ion-toolbar>
+</ion-header>-->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+    <!--This is the creation button in the top bar-->
+    <button primary small ion-button (click)="showToastWithCloseButton()">?</button>
+    </ion-buttons>
+    <ion-title>
+      Explore Galway
+    </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 
 <!--The idea here is to take a picture and have it show on screen with the options to like and delete the image
 Outlined grid to image storage location, click button, like icon button and delete photo icon button-->
-
 <ion-content>
-  
-  
 <!--<button (click)="takePhoto()" ion-button outline block>Snap what you see!</button>-->
-
-   
   <!--<ion-content padding>-->
     <h1> Memory Bank: </h1>
-    <button primary small ion-button (click)="showToastWithCloseButton()">?</button>
 <!--</ion-content>-->
   <!--<p> What are you at in Galway, find a snappable pint, coffee, ice-cream, street view, sunset or anything you find intresting on your time here. </p>-->
   
@@ -38,7 +43,8 @@ Outlined grid to image storage location, click button, like icon button and dele
   </ion-content>
 
   <ion-footer>
-  <img [src]="base64Image" *ngIf= "base64Image"/>
+    <img [src]="base64Image" *ngIf="base64Image" />
+  <!--<img [src]="base64Image" *ngIf= "base64Image"/>-->
 <button primary large (click)="takePhoto()" ion-button outline block><ion-icon name="ios-camera"></ion-icon></button>
   </ion-footer>
 
