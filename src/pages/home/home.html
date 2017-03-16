@@ -1,50 +1,100 @@
-<!--<ion-header>
-  <ion-toolbar fixed>
-    <ion-title large>Explore Galway <button primary small ion-button (click)="showToastWithCloseButton()">?</button></ion-title>
-  </ion-toolbar>
-</ion-header>-->
 <ion-header>
   <ion-toolbar>
     <ion-buttons start>
-    <!--This is the creation button in the top bar-->
-    <button primary large ion-button (click)="showToastWithCloseButton()">?</button>
+    <button primary large ion-button (click)="showToastWithCloseButton()">?</button>   <!--Toast-->
     </ion-buttons>
     <ion-title>
-      Explore Galway
+      Explore Galway <!--Title-->
     </ion-title>
+    <!--Original title-->
+      <!--<ion-title large>Explore Galway <button primary small ion-button (click)="showToastWithCloseButton()">?</button></ion-title>-->
     </ion-toolbar>
 </ion-header>
 
 
-<!--The idea here is to take a picture and have it show on screen with the options to like and delete the image
-Outlined grid to image storage location, click button, like icon button and delete photo icon button-->
-<ion-content>
-<!--<button (click)="takePhoto()" ion-button outline block>Snap what you see!</button>-->
-  <!--<ion-content padding>-->
+<ion-content> <!--Main begins-->
+
+  <!--Original camera btn, now changed and moved to the footer-->
+      <!--<button (click)="takePhoto()" ion-button outline block>Snap what you see!</button>-->
+
     <h1> Memory Bank: </h1>
-<!--</ion-content>-->
-  <!--<p> What are you at in Galway, find a snappable pint, coffee, ice-cream, street view, sunset or anything you find intresting on your time here. </p>-->
+
+    <!--I had the how-to as a paragraph before a toast btn was put in-->
+          <!-- <p>What are you at in Galway...</p> -->
   
-  <!--Image location in card -->
+  <!--Image location in card || async connection to Firebase-->
     <ion-card *ngFor="let photo of photos | async">
       <ion-card-content>
         <img [src]="photo.src" />
+
+<!-- *** Future text overlay idea *** -->
+              <!--<label class="item item-input">
+                  <input type="text" ng-model="textOverlay" placeholder="Text to overlay">
+              </label>-->
+
         <!--Like button-->
+        <!-- + firebase key connection-->
           <button (click)="likePhoto(photo.$key, photo.likes)" ion-button block>
             <ion-icon name="heart"></ion-icon>
             <ion-badge item-right>{{photo.likes}}</ion-badge>
           </button>
         <!--Delete button-->
+        <!-- + firebase key connection-->
         <button (click)="deletePhoto(photo.$key)" ion-button color="danger" block>
         <ion-icon name="trash"></ion-icon>
       </button>
     </ion-card-content>
   </ion-card>
+</ion-content> <!--Main ends-->
+
+<ion-content padding class="video-result">
+
+  <video id="result-video-element"
+    width="100%"
+    controls
+    webkit-playsinline
+    poster="{{thumbnailPath}}"
+    src="{{videoPath}}">
+  </video>
+
+  <div *ngIf="videoInfo">
+    <div class="video-details-header">
+      <strong>Video Details:</strong>
+    </div>
+    <div>
+      <strong>Width:</strong> {{videoInfo.width}}
+    </div>
+    <div>
+      <strong>Height:</strong> {{videoInfo.height}}
+    </div>
+    <div>
+      <strong>Orientation:</strong> {{videoInfo.orientation}}
+    </div>
+    <div>
+      <strong>Duration:</strong> {{videoInfo.duration.toFixed(2)}} seconds
+    </div>
+    <div>
+      <strong>Size:</strong> {{videoInfo.size}} bytes
+    </div>
+    <div>
+      <strong>Bitrate:</strong> {{videoInfo.bitrate}} bits per second
+    </div>
+  </div>
+
 </ion-content>
 
+
+<!--set to the base of the app-->
   <ion-footer>
-    <!--<img [src]="base64Image" *ngIf="base64Image" />-->
-  <!--<img [src]="base64Image" *ngIf= "base64Image"/>-->
-<button primary large (click)="takePhoto()" ion-button outline block><ion-icon name="ios-camera"></ion-icon></button>
+  <!--Prior Firebase implementation code-->
+        <!--<img [src]="base64Image" *ngIf="base64Image" />-->
+        <!--<img [src]="base64Image" *ngIf= "base64Image"/>-->
+
+  <!--Camera btn with in icon from the ionic icon-->
+  
+    <button (click)="newVideo()" ion-button outline block><ion-icon name="logo-youtube"></ion-icon></button>
+    
+<!--  --> 
+      <button primary large (click)="takePhoto()" ion-button outline block><ion-icon name="ios-camera"></ion-icon></button>
   </ion-footer>
 
