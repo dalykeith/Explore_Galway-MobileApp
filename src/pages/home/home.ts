@@ -9,6 +9,8 @@ import { ToastController } from 'ionic-angular';
 import { Photo } from './../photo';
 //Native ionic camera 
 import { Camera } from 'ionic-native';
+//firebase
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 
 @Component({
@@ -21,7 +23,12 @@ export class HomePage {
   
   //test
   //public base64Image: string;
-constructor(public toastCtrl: ToastController) {}
+
+  //photos: Photo [] = [new Photo('', 0)];
+  photos: FirebaseListObservable<any[]>;
+//constructor(public toastCtrl: ToastController, af: AngularFire) {}
+constructor(private af: AngularFire, public toastCtrl: ToastController) { }
+
   // constructor(public navCtrl: NavController) {
   //   //public navCtrl: NavController
 
@@ -35,12 +42,15 @@ showToastWithCloseButton() {
     });
     toast.present();
   }
+ 
+  ngOnInit() {
+    this.getPhotos();
+  }
 
+  getPhotos() {
+    this.photos = this.af.database.list('/photos');
+  }
 
-
-  photos: Photo [] = [new Photo('', 0)];
-  // = [new Photo('https://placehold.it/350/150', 5), new Photo('https://placehold.it/350/150', 5)]
-  //testing fake image holders for placement  
 
   takePhoto() {
     Camera.getPicture({
@@ -53,7 +63,8 @@ showToastWithCloseButton() {
   //let base64Image = 'data:image/jpeg;base64,' + imageData;
        // this.base64Image = "data:image/jpeg;base64," + imageData;
       //  this.base64Image = "data:image/jpeg;base64," + imageData;
-       this.photos.push(new Photo("data:image/jpeg;base64," + imageData, 0));
+       //this.photos.push(new Photo("data:image/jpeg;base64," + imageData, 0));
+       this.photos.push({ src: "data:image/jpeg;base64," + imageData, likes: 0 });
     }, (err) => {
       console.log(err);
     });
@@ -61,13 +72,18 @@ showToastWithCloseButton() {
 
 
   //deleting photo x 1 per click
-    deletePhoto(photo){
-      this.photos.splice(this.photos.indexOf(photo), 1);
+    // deletePhoto(photo){
+    //   this.photos.splice(this.photos.indexOf(photo), 1);
+      deletePhoto(photoKey: string) {
+    this.photos.remove(photoKey);
     }
   //liking photo x times 
-    likePhoto(photo){
-      photo.likes++;
+    // likePhoto(photo){
+    //   photo.likes++;
+      likePhoto(photoKey, likes: number) {
+    this.photos.update(photoKey, { likes: likes + 1})
   }
+  
 
   }
 
