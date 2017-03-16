@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
+//Unused import: 'NavController' by terminal 
+//import { NavController } from 'ionic-angular';
 
 //toast pop up message
 import { ToastController } from 'ionic-angular';
 
 //Importing photo file 
-import { Photo } from './../photo';
+//import { Photo } from './../photo';
 //Native ionic camera 
 import { Camera } from 'ionic-native';
 //firebase
@@ -55,8 +56,8 @@ showToastWithCloseButton() {
   takePhoto() {
     Camera.getPicture({
       destinationType: Camera.DestinationType.DATA_URL,
-      targetHeight: 500,
-      targetWidth: 500,
+      targetHeight: 250,
+      targetWidth: 250,
       correctOrientation: true
     }).then((imageData) => {
       // imageData is a base64 encoded string

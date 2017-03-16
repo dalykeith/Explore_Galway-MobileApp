@@ -26,23 +26,24 @@ Outlined grid to image storage location, click button, like icon button and dele
   <!--<p> What are you at in Galway, find a snappable pint, coffee, ice-cream, street view, sunset or anything you find intresting on your time here. </p>-->
   
   <!--Image location in card -->
-  <ion-card *ngFor="let photo of photos | async">
-    <ion-card-content>
-      <img [src]="photo.src" />
-      <button (click)="likePhoto(photo.$key, photo.likes)" ion-button block>
-        <ion-icon name="heart"></ion-icon>
-        <ion-badge item-right>{{photo.likes}}</ion-badge>
-      </button>
+    <ion-card *ngFor="let photo of photos | async">
+      <ion-card-content>
+        <img [src]="photo.src" />
+        <!--Like button-->
+          <button (click)="likePhoto(photo.$key, photo.likes)" ion-button block>
+            <ion-icon name="heart"></ion-icon>
+            <ion-badge item-right>{{photo.likes}}</ion-badge>
+          </button>
         <!--Delete button-->
         <button (click)="deletePhoto(photo.$key)" ion-button color="danger" block>
         <ion-icon name="trash"></ion-icon>
       </button>
     </ion-card-content>
   </ion-card>
-  </ion-content>
+</ion-content>
 
   <ion-footer>
-    <img [src]="base64Image" *ngIf="base64Image" />
+    <!--<img [src]="base64Image" *ngIf="base64Image" />-->
   <!--<img [src]="base64Image" *ngIf= "base64Image"/>-->
 <button primary large (click)="takePhoto()" ion-button outline block><ion-icon name="ios-camera"></ion-icon></button>
   </ion-footer>

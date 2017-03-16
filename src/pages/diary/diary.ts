@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+// import { AngularFire, FirebaseListObservable } from 'angularfire2';
+
 /*
   Generated class for the Diary page.
 
