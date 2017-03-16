@@ -3,14 +3,17 @@ import { Component } from '@angular/core';
 //Unused import: 'NavController' by terminal 
 //import { NavController } from 'ionic-angular';
 
-//toast pop up message
+//toast pop up message (app info)
 import { ToastController } from 'ionic-angular';
 
+//This is not needed after the firebase implementation as the photo is stored online 
 //Importing photo file 
 //import { Photo } from './../photo';
+
 //Native ionic camera 
 import { Camera } from 'ionic-native';
-//firebase
+
+//pulling in firebase
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 
@@ -19,22 +22,27 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
   templateUrl: 'home.html'
 })
 export class HomePage {
+
   public base64Image: string;
   name: string;
   
   //test
   //public base64Image: string;
-
+  
+  //this is not used with the new implementation with firebase
   //photos: Photo [] = [new Photo('', 0)];
   photos: FirebaseListObservable<any[]>;
+
+  //private AngularFire and public toast 
 //constructor(public toastCtrl: ToastController, af: AngularFire) {}
 constructor(private af: AngularFire, public toastCtrl: ToastController) { }
 
+  //old code
   // constructor(public navCtrl: NavController) {
   //   //public navCtrl: NavController
-
   // }
-  // photo place holder
+  
+//Toast button
 showToastWithCloseButton() {
     const toast = this.toastCtrl.create({
       message: 'Tap the Camera button at the bottom! Capture a snappable pint, coffee, ice-cream, street view, sunset or anything you find intresting on your time here and save it in the Memory Bank!',
@@ -44,6 +52,7 @@ showToastWithCloseButton() {
     toast.present();
   }
  
+
   ngOnInit() {
     this.getPhotos();
   }
