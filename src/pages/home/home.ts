@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 //Unused import: 'NavController' by terminal 
 //import { NavController } from 'ionic-angular';
 
-//toast pop up message (app info)
+//Importing Toast
 import { ToastController } from 'ionic-angular';
 
 //This is not needed after the firebase implementation as the photo is stored online 
@@ -53,15 +53,18 @@ showToastWithCloseButton() {
   }
  
 
+
+//Holds the photo online, component lifecycle hook
   ngOnInit() {
     this.getPhotos();
   }
 
+//photo location storage is firebase/app/photos
   getPhotos() {
     this.photos = this.af.database.list('/photos');
   }
 
-
+//Camera && the image storage location with the 'this.photos' push 
   takePhoto() {
     Camera.getPicture({
       destinationType: Camera.DestinationType.DATA_URL,
@@ -69,32 +72,41 @@ showToastWithCloseButton() {
       targetWidth: 250,
       correctOrientation: true
     }).then((imageData) => {
+
       // imageData is a base64 encoded string
   //let base64Image = 'data:image/jpeg;base64,' + imageData;
        // this.base64Image = "data:image/jpeg;base64," + imageData;
       //  this.base64Image = "data:image/jpeg;base64," + imageData;
        //this.photos.push(new Photo("data:image/jpeg;base64," + imageData, 0));
-       this.photos.push({ src: "data:image/jpeg;base64," + imageData, likes: 0 });
+       this.photos.push({ src: "data:image/jpeg;base64," + imageData, likes: 0, dislikes: 0 });
     }, (err) => {
       console.log(err);
     });
   }
 
+    //Prior Firebase implementation code
+        //deleting photo x 1 per click
+        //deletePhoto(photo){
+        //this.photos.splice(this.photos.indexOf(photo), 1);
 
-  //deleting photo x 1 per click
-    // deletePhoto(photo){
-    //   this.photos.splice(this.photos.indexOf(photo), 1);
+    //If user clicks delete btn, image will be deleted from firebase location saved
       deletePhoto(photoKey: string) {
     this.photos.remove(photoKey);
     }
-  //liking photo x times 
-    // likePhoto(photo){
-    //   photo.likes++;
+    //Prior Firebase implementation code
+        //liking photo x times 
+        //likePhoto(photo){
+        //photo.likes++;
+
+    //If user clicks like btn, 1 like will be added to the original number of likes and added to firebase location
       likePhoto(photoKey, likes: number) {
     this.photos.update(photoKey, { likes: likes + 1})
   }
-  
 
-  }
+  dislikePhoto(photoKey, dislikes: number) {
+    this.photos.update(photoKey, { dislikes: dislikes + 1})
+}
+}
+
 
 

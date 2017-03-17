@@ -34,67 +34,46 @@
 
         <!--Like button-->
         <!-- + firebase key connection-->
-          <button (click)="likePhoto(photo.$key, photo.likes)" ion-button block>
+        <div class ="button-bar">
+          <a class ="button"><button large (click)="likePhoto(photo.$key, photo.likes)" ion-button color="light" block>
             <ion-icon name="heart"></ion-icon>
             <ion-badge item-right>{{photo.likes}}</ion-badge>
-          </button>
+          </button> </a>
+
+        <!--Dislike button-->
+        <!-- + firebase key connection-->
+          <a class ="button"><button medium (click)="dislikePhoto(photo.$key, photo.dislikes)" ion-button color="light" block>
+            <ion-icon name="sad"></ion-icon>
+            <ion-badge item-right>{{photo.dislikes}}</ion-badge>
+          </button> </a>
+
         <!--Delete button-->
         <!-- + firebase key connection-->
-        <button (click)="deletePhoto(photo.$key)" ion-button color="danger" block>
+        <a class ="button"><button small (click)="deletePhoto(photo.$key)" ion-button color="danger" block>
         <ion-icon name="trash"></ion-icon>
-      </button>
+      </button> </a>
+        </div> 
     </ion-card-content>
   </ion-card>
 </ion-content> <!--Main ends-->
 
-<ion-content padding class="video-result">
-
-  <video id="result-video-element"
-    width="100%"
-    controls
-    webkit-playsinline
-    poster="{{thumbnailPath}}"
-    src="{{videoPath}}">
-  </video>
-
-  <div *ngIf="videoInfo">
-    <div class="video-details-header">
-      <strong>Video Details:</strong>
-    </div>
-    <div>
-      <strong>Width:</strong> {{videoInfo.width}}
-    </div>
-    <div>
-      <strong>Height:</strong> {{videoInfo.height}}
-    </div>
-    <div>
-      <strong>Orientation:</strong> {{videoInfo.orientation}}
-    </div>
-    <div>
-      <strong>Duration:</strong> {{videoInfo.duration.toFixed(2)}} seconds
-    </div>
-    <div>
-      <strong>Size:</strong> {{videoInfo.size}} bytes
-    </div>
-    <div>
-      <strong>Bitrate:</strong> {{videoInfo.bitrate}} bits per second
-    </div>
-  </div>
-
-</ion-content>
+  <!-- *** Future video content idea *** -->
+          <!--<video id="video-element"
+          width="100%"
+          controls  
+          src="{{videoPath}}">
+          </video>-->
 
 
 <!--set to the base of the app-->
-  <ion-footer>
-  <!--Prior Firebase implementation code-->
-        <!--<img [src]="base64Image" *ngIf="base64Image" />-->
-        <!--<img [src]="base64Image" *ngIf= "base64Image"/>-->
-
-  <!--Camera btn with in icon from the ionic icon-->
   
-    <button (click)="newVideo()" ion-button outline block><ion-icon name="logo-youtube"></ion-icon></button>
-    
-<!--  --> 
+  <ion-footer>
+  <!-- *** Future video content idea *** -->
+          <!--<button (click)="newVideo()" ion-button outline block><ion-icon name="logo-youtube"></ion-icon></button>-->
+  <!--Prior Firebase implementation code-->
+          <!--<img [src]="base64Image" *ngIf="base64Image" />-->
+          <!--<img [src]="base64Image" *ngIf= "base64Image"/>-->
+  <!--Camera btn with in icon from the ionic icon-->
       <button primary large (click)="takePhoto()" ion-button outline block><ion-icon name="ios-camera"></ion-icon></button>
   </ion-footer>
 
