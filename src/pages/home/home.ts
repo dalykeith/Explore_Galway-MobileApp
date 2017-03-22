@@ -55,6 +55,8 @@ showToastWithCloseButton() {
 
 
 //Holds the photo online, component lifecycle hook
+// https://github.com/unicodeveloper/angular-2-cloudinary/blob/master/app/photo-list/photo-list.component.ts
+// https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html
   ngOnInit() {
     this.getPhotos();
   }

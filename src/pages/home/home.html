@@ -6,26 +6,18 @@
     <ion-title>
       Explore Galway <!--Title-->
     </ion-title>
-    <!--Original title-->
-      <!--<ion-title large>Explore Galway <button primary small ion-button (click)="showToastWithCloseButton()">?</button></ion-title>-->
     </ion-toolbar>
 </ion-header>
 
+<ion-content> 
+<!--Header-->
+<h1> Memory Bank: </h1> 
 
-<ion-content> <!--Main begins-->
-
-  <!--Original camera btn, now changed and moved to the footer-->
-      <!--<button (click)="takePhoto()" ion-button outline block>Snap what you see!</button>-->
-
-    <h1> Memory Bank: </h1>
-
-    <!--I had the how-to as a paragraph before a toast btn was put in-->
-          <!-- <p>What are you at in Galway...</p> -->
-  
-  <!--Image location in card || async connection to Firebase-->
+<!--Image location in card || async connection to Firebase-->
     <ion-card *ngFor="let photo of photos | async">
       <ion-card-content>
-        <img [src]="photo.src" />
+        <img [src]="photo.src" /> 
+        <!--push image to top as taken-->
 
 <!-- *** Future text overlay idea *** -->
               <!--<label class="item item-input">
@@ -37,7 +29,7 @@
         <div class ="button-bar">
           <a class ="button"><button large (click)="likePhoto(photo.$key, photo.likes)" ion-button color="light" block>
             <ion-icon name="heart"></ion-icon>
-            <ion-badge item-right>{{photo.likes}}</ion-badge>
+            <ion-badge item-right>{{photo.likes}}</ion-badge>     
           </button> </a>
 
         <!--Dislike button-->
@@ -45,35 +37,25 @@
           <a class ="button"><button medium (click)="dislikePhoto(photo.$key, photo.dislikes)" ion-button color="light" block>
             <ion-icon name="sad"></ion-icon>
             <ion-badge item-right>{{photo.dislikes}}</ion-badge>
-          </button> </a>
+            </button> 
+          </a>
 
         <!--Delete button-->
         <!-- + firebase key connection-->
-        <a class ="button"><button small (click)="deletePhoto(photo.$key)" ion-button color="danger" block>
-        <ion-icon name="trash"></ion-icon>
-      </button> </a>
+          <a class ="button"><button small (click)="deletePhoto(photo.$key)" ion-button color="danger" block>
+            <ion-icon name="trash"></ion-icon>
+            </button> 
+          </a>
         </div> 
     </ion-card-content>
   </ion-card>
 </ion-content> <!--Main ends-->
 
-  <!-- *** Future video content idea *** -->
-          <!--<video id="video-element"
-          width="100%"
-          controls  
-          src="{{videoPath}}">
-          </video>-->
-
-
-<!--set to the base of the app-->
-  
-  <ion-footer>
-  <!-- *** Future video content idea *** -->
-          <!--<button (click)="newVideo()" ion-button outline block><ion-icon name="logo-youtube"></ion-icon></button>-->
-  <!--Prior Firebase implementation code-->
+<ion-footer> 
+      <!--Prior Firebase implementation code-->
           <!--<img [src]="base64Image" *ngIf="base64Image" />-->
           <!--<img [src]="base64Image" *ngIf= "base64Image"/>-->
-  <!--Camera btn with in icon from the ionic icon-->
+    <!--Camera btn with in icon from the ionic icon-->
       <button primary large (click)="takePhoto()" ion-button outline block><ion-icon name="ios-camera"></ion-icon></button>
-  </ion-footer>
+</ion-footer>
 
