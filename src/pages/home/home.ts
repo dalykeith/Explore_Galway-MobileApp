@@ -52,9 +52,8 @@ showToastWithCloseButton() {
     toast.present();
   }
  
-
-
 //Holds the photo online, component lifecycle hook
+//ang on initialization check, instance is there getPhotos 
 // https://github.com/unicodeveloper/angular-2-cloudinary/blob/master/app/photo-list/photo-list.component.ts
 // https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html
   ngOnInit() {
@@ -105,8 +104,9 @@ showToastWithCloseButton() {
     this.photos.update(photoKey, { likes: likes + 1})
   }
 
+  //dislikes gets updated
   dislikePhoto(photoKey, dislikes: number) {
-    this.photos.update(photoKey, { dislikes: dislikes + 1})
+    this.photos.update(photoKey, { dislikes: dislikes + 1}) 
 }
 }
 
