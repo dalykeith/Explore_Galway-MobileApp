@@ -11,6 +11,7 @@ import { ToastController } from 'ionic-angular';
 //import { Photo } from './../photo';
 
 //Native ionic camera 
+//camera options to be added 
 import { Camera } from 'ionic-native';
 
 //pulling in firebase
@@ -74,26 +75,22 @@ showToastWithCloseButton() {
       correctOrientation: true
     }).then((imageData) => {
 
-      // imageData is a base64 encoded string
-  //let base64Image = 'data:image/jpeg;base64,' + imageData;
-       // this.base64Image = "data:image/jpeg;base64," + imageData;
-      //  this.base64Image = "data:image/jpeg;base64," + imageData;
-       //this.photos.push(new Photo("data:image/jpeg;base64," + imageData, 0));
-       this.photos.push({ src: "data:image/jpeg;base64," + imageData, likes: 0, dislikes: 0 });
-    }, (err) => {
+        // imageData is a base64 encoded string
+        //let base64Image = 'data:image/jpeg;base64,' + imageData;
+        //this.base64Image = "data:image/jpeg;base64," + imageData;
+        //this.base64Image = "data:image/jpeg;base64," + imageData;
+        //this.photos.push(new Photo("data:image/jpeg;base64," + imageData, 0));
+      this.photos.push({ src: "data:image/jpeg;base64," + imageData, likes: 0, dislikes: 0 });
+      }, (err) => {
       console.log(err);
     });
   }
-
-    //Prior Firebase implementation code
-        //deleting photo x 1 per click
-        //deletePhoto(photo){
-        //this.photos.splice(this.photos.indexOf(photo), 1);
 
     //If user clicks delete btn, image will be deleted from firebase location saved
       deletePhoto(photoKey: string) {
     this.photos.remove(photoKey);
     }
+    
     //Prior Firebase implementation code
         //liking photo x times 
         //likePhoto(photo){
