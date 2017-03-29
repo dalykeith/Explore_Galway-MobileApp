@@ -1,6 +1,7 @@
 {
   "name": "madApp",
   "app_id": "860ddfde",
+  
   "v2": true,
   "typescript": true
 }
