@@ -12,7 +12,7 @@ Student @GMIT, Galway, Ireland.
 
 Year two - Semester two.
 
-#Explore Galway App
+# Explore Galway App
 
 Page one, the home screen of the app had a photo display page (Snap Galway). The user was able to take a photo with a camera button at the base of the screen and upload to the display page. At the base of each photo the user(s) could heart, sad face or delete. The app was connected to Firebase (online cloud storage) where the image and data on photo reviews was stored. For every user on the app it would update every 1 second.
 
