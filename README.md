@@ -20,4 +20,10 @@ Page two (Find Galway) had a diary page in the top bar left or right depending o
 
 Page three displays contact information of the Developer Keith Daly. At the base of the page is a local Facebook page api desplaying regular updates on things to do and see within Galway city.
 
+# Download
 
+If you would like this app on your mobile device.
+
+Download the App 'Ionic View' on the Google playstore or the Apple App store.
+*click* Preview App
+860ddfde will be the preview code
