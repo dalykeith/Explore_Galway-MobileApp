@@ -26,6 +26,6 @@ If you would like this app on your mobile device.
 
 Download the App 'Ionic View' on the Google playstore or the Apple App store.
 
-*click* Preview App
+*click* preview App
 
-860ddfde will be the preview code
+'860ddfde' will be the preview code
