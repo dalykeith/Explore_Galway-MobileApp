@@ -20,4 +20,4 @@ Page two (Find Galway) had a diary page in the top bar left or right depending o
 
 Page three displays contact information of the Developer Keith Daly. At the base of the page is a local Facebook page api desplaying regular updates on things to do and see within Galway city.
 
-2nd-year-software-ionic-2-assignment-dalykeith/IMG_0118.PNG
+
